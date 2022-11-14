@@ -94,7 +94,7 @@ keys = [
 
 
     Key(["mod1"], "p", lazy.spawn('pamac-manager')),
-    Key(["mod1"], "f", lazy.spawn('firedragon')),
+    Key(["mod1"], "f", lazy.spawn('vivaldi-stable')),
     Key(["mod1"], "m", lazy.spawn('pcmanfm')),
     Key(["mod1"], "w", lazy.spawn('garuda-welcome')),
 
@@ -284,24 +284,24 @@ layout_theme = init_layout_theme()
 layouts = [
     layout.MonadTall(margin=8, border_width=1, border_focus="#ff00ff", border_normal="#f4c2c2"),
     layout.MonadWide(margin=8, border_width=1, border_focus="#ff00ff", border_normal="#f4c2c2"),
-    layout.Matrix(**layout_theme),
-    layout.Bsp(**layout_theme),
+    #layout.Matrix(**layout_theme),
+    #layout.Bsp(**layout_theme),
     layout.Floating(**layout_theme),
-    layout.RatioTile(**layout_theme),
+    #layout.RatioTile(**layout_theme),
     layout.Max(**layout_theme),
-    layout.Columns(**layout_theme),
-    layout.Stack(**layout_theme),
-    layout.Tile(**layout_theme),
-    layout.TreeTab(
-        sections=['FIRST', 'SECOND'],
-        bg_color = '#141414',
-        active_bg = '#0000ff',
-        inactive_bg = '#1e90ff',
-        padding_y =5,
-        section_top =10,
-        panel_width = 280),
-    layout.VerticalTile(**layout_theme),
-    layout.Zoomy(**layout_theme)
+    #layout.Columns(**layout_theme),
+    #layout.Stack(**layout_theme),
+    #layout.Tile(**layout_theme),
+    #layout.TreeTab(
+    #    sections=['FIRST', 'SECOND'],
+    #    bg_color = '#141414',
+    #    active_bg = '#0000ff',
+    #    inactive_bg = '#1e90ff',
+    #    padding_y =5,
+    #    section_top =10,
+    #    panel_width = 280),
+    #layout.VerticalTile(**layout_theme),
+    #layout.Zoomy(**layout_theme)
 ]
 
 # COLORS FOR THE BAR
@@ -357,9 +357,10 @@ def init_widgets_list():
                  widget.Sep(
                         linewidth = 1,
                         padding = 10,
+                        opacity = 0,
                         foreground = colors[24],
                         background = colors[24]
-                        ),              #
+                        ),
                widget.Image(
                        filename = "~/.config/qtile/icons/garuda-red.png",
                        iconsize = 9,
@@ -369,7 +370,6 @@ def init_widgets_list():
                widget.GroupBox(
 
             **base(bg=colors[15]),
-            #background = colors[24],
             font='UbuntuMono Nerd Font',
 
                     fontsize = 13,
@@ -396,21 +396,21 @@ def init_widgets_list():
                    
                         ),
                 widget.TaskList(
-                    highlight_method = 'block', # border or block 
+                    highlight_method = 'block', # border or block
                     icon_size=0,
                     max_title_width=150,
-                    rounded=True,
-                    padding_x=0,
+                    #rounded=True,
+                    padding_x=2,
                     padding_y=0,
-                    margin_y=0,
-                    fontsize=0,
-                    border=colors[24],
-                    foreground=colors[24],
-                    margin=2,
+                    margin_y=2,
+                    fontsize=12,
+                    border=colors[20],
+                    #foreground=colors[24],
+                    margin=3,
                     txt_floating='🗗',
                     txt_minimized='>_ ',
-                    borderwidth = 1,
-                    background=colors[24],
+                    borderwidth = 2,
+                    #background=colors[24],
                     #unfocused_border = 'border'
                 ),
 
@@ -452,11 +452,19 @@ def init_widgets_list():
                        ),
 
                 widget.ThermalSensor(
-                        format='CPU temp: {temp}'
+                        font="Noto Sans",
+                        fontsize = 12,
+                        foreground = colors[5],
+                        background = colors[19],
+                        format='CPU: {temp}'
                        ),
 
                 widget.NvidiaSensors(
-                        format='GPU temp: {temp}°C'
+                        font="Noto Sans",
+                        fontsize = 12,
+                        foreground = colors[5],
+                        background = colors[19],
+                        format='GPU: {temp}°C'
                        ),
 
                widget.Memory(
@@ -627,3 +635,5 @@ auto_fullscreen = True
 focus_on_window_activation = "focus" # or smart
 
 wmname = "LG3D"
+
+
