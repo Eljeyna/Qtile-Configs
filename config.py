@@ -367,6 +367,20 @@ def init_widgets_list():
                        background = colors[24],
                        mouse_callbacks = {'Button1': lambda : qtile.cmd_spawn('jgmenu_run')}
                        ),
+
+               widget.Sep(
+                       linewidth = 1,
+                       padding = 10,
+                       opacity = 0,
+                       foreground = colors[24],
+                       background = colors[24]
+                       ),
+
+               widget.KeyboardLayout(
+                       background=colors[24],
+                       margin=2,
+                       configured_keyboards=['us', 'ru']
+                       ),
                widget.GroupBox(
 
             **base(bg=colors[15]),
@@ -490,12 +504,6 @@ def init_widgets_list():
                        icon_size=20,
                        padding = 4
                        ),
-
-               widget.KeyboardLayout(
-                       background=["#0f101a", "#0f101a"],
-                       foreground=["#dcdcdc", "#dcdcdc"],
-                       configured_keyboards=['us', 'ru']
-                       ),
               ]
     return widgets_list
 
@@ -507,6 +515,7 @@ def get_keyboard_layout():
 
 def init_widgets_screen1():
     widgets_screen1 = init_widgets_list()
+    del widgets_screen1[6:13]
     return widgets_screen1
 
 def init_widgets_screen2():
