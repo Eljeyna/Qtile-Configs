@@ -106,8 +106,8 @@ keys = [
 
 # SCREENSHOTS
 
-    Key([], "Print", lazy.spawn('flameshot full -p ' + home + '/Pictures')),
-    Key([mod2], "Print", lazy.spawn('flameshot full -p ' + home + '/Pictures')),
+    Key([], "Print", lazy.spawn('flameshot full -p ' + '/run/media/pka/_Images')),
+    Key([mod2], "Print", lazy.spawn('flameshot full -p ' + '/run/media/pka/_Images')),
 #    Key([mod2, "shift"], "Print", lazy.spawn('gnome-screenshot -i')),
 
 # MULTIMEDIA KEYS
@@ -470,7 +470,7 @@ def init_widgets_list():
                         fontsize = 12,
                         foreground = colors[5],
                         background = colors[19],
-                        format='CPU: {temp}'
+                        format='CPU: {temp}°C'
                        ),
 
                 widget.NvidiaSensors(
